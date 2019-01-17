@@ -256,7 +256,7 @@ def get_members_from_committees_json(*, write_to_disk=True, verbose=False):
     """ Opens the committee json and produces the committee_members json from it """
     vprint = lambda *a, **kwa: print(*a, **kwa) if verbose else None
 
-    with open(COMMITTEES_FNAME) as fp:
+    with open(common.COMMITTEES_FNAME) as fp:
         committees = json.load(fp)
 
     committee_members = {}
@@ -267,7 +267,7 @@ def get_members_from_committees_json(*, write_to_disk=True, verbose=False):
         committee_members[c["id"]] = [m["id"] for m in ans["current_members"]]
         
     if write_to_disk:
-        with open(COMMMITTEE_MEMBERS_FNAME, "w") as fp:
+        with open(common.COMMMITTEE_MEMBERS_FNAME, "w") as fp:
             json.dump(committee_members, fp, indent=4)
     
     return committee_members
@@ -278,6 +278,7 @@ def get_bills_committees():
     with open(common.BILLS_FNAME) as fp:
         bills = json.load(fp)
     return {b["bill_id"] : b["committee_codes"] for b in bills}
+
 
 def main(*, requests_per_senator=1, get_active_senators=False, get_adjacency=False,\
         get_cosponsorship=False, get_cosponsors=False, get_committees=False, verbose=False):
