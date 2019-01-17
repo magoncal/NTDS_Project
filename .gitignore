@@ -23,12 +23,3 @@ __pycache__/
 *.run.xml
 *.snm
 
-
-# Ignore the APIKey file
-APIKey.txt
-APIKey2.txt
-
-# Ignore the Untiled Test notebook
-Untitled.ipynb
-
-APIKey\.txt

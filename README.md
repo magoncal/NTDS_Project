@@ -15,15 +15,11 @@ This project was made using Python 3.6.5
 
 ## Loading script
 
-Brief description
+Since we do not have a predefined dataset, the data must be retrieved using the [ProPublica Congress API](https://projects.propublica.org/api-docs/congress-api/). This script should be executed from a terminal. It fetches certain features of interest independently, which speeds up the retrieval time if some data is already present, and allows to deal with the API quota (5000 requests per day per API Key) in a more efficient way. An API Key was provided here. 
 
-## Jupyter notebook
+### Usage of the loading script
 
-Brief description
-
-## Usage of the loading script
-
-We use the [ProPublica Congress API](https://projects.propublica.org/api-docs/congress-api/) to retrieve our data. When running [load_data.py](load_data.py), the following flags may be set to control the application behavior:
+When running [load_data.py](load_data.py), the following flags may be set to control the script behavior:
 
 | Flag                 | Description                                          |
 | -------------------- | ---------------------------------------------------- |
@@ -37,3 +33,7 @@ We use the [ProPublica Congress API](https://projects.propublica.org/api-docs/co
 For example, this is how to generate the adjacency matrix from the milestones (based on senators vote positions that are retrieved with the API), and also fetch, for every senator in the current version of the file `data/active_senators.npy`, the list of cosponsored bills (the number of API requests will affect the amount of data retrieved to construct these data structures): 
 
 >python load_data.py --adjacency --cosponsorship --requests=40
+
+## Jupyter notebook
+
+The project core. Pretty straightforward, first imports the data that was retrieved by [load_data.py](load_data.py), then computes senator- and bill-specific features that will be used to perform a regression. We compare two models, Logistic Regression and Random Forest. After feature engineering the data is split into **train** and **test**, and the models are trained on the former. Finally, the models performance is evaluated on the **test** set.
