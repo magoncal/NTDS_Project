@@ -17,6 +17,8 @@ This project was made using Python 3.6.5
 
 Since we do not have a predefined dataset, the data must be retrieved using the [ProPublica Congress API](https://projects.propublica.org/api-docs/congress-api/). This script should be executed from a terminal. It fetches certain features of interest independently, which speeds up the retrieval time if some data is already present, and allows to deal with the API quota (5000 requests per day per API Key) in a more efficient way. An API Key was provided here. 
 
+Note that it is not requierd to run the loading script since the files containing the datasets are already saved in the repository.
+
 ### Usage of the loading script
 
 When running [load_data.py](load_data.py), the following flags may be set to control the script behavior:
@@ -37,3 +39,15 @@ For example, this is how to generate the adjacency matrix from the milestones (b
 ## Jupyter notebook
 
 The project core. Pretty straightforward, first imports the data that was retrieved by [load_data.py](load_data.py), then computes senator- and bill-specific features that will be used to perform a regression. We compare two models, Logistic Regression and Random Forest. After feature engineering the data is split into **train** and **test**, and the models are trained on the former. Finally, the models performance is evaluated on the **test** set.
+
+## Python version and library used:
+* Python: 3.6.5
+* Numpy: 1.15.4
+* Pandas: 0.23.4
+* Networkx: 2.2
+* Scikit-learn: 0.20.0
+* Scipy: 1.1.0
+* Jsonschema: 2.6.0
+* Pickleshare: 0.7.4
+* Pyunlocbox: 0.5.2
+* Matplotlib: 3.0.0
