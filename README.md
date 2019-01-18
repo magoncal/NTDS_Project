@@ -17,7 +17,7 @@ This project was made using Python 3.6.5
 
 Since we do not have a predefined dataset, the data must be retrieved using the [ProPublica Congress API](https://projects.propublica.org/api-docs/congress-api/). This script should be executed from a terminal. It fetches certain features of interest independently, which speeds up the retrieval time if some data is already present, and allows to deal with the API quota (5000 requests per day per API Key) in a more efficient way. An API Key was provided here. 
 
-Note that it is not requierd to run the loading script since the files containing the datasets are already saved in the repository.
+Note that it is not required to run the loading script since the files containing the datasets are already saved in the repository.
 
 ### Usage of the loading script
 
