@@ -1,5 +1,5 @@
 
-United States senators vote prediction
+Vote prediction of US Senators from graph properties
 =====
 Original fork: [ntds_2018](https://github.com/AgentAGadge/ntds_2018)
 
